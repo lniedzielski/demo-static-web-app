@@ -10,8 +10,17 @@
 
 <body>
   <main>
-    <h1>Our test for Static Web App</h1>
+  <h1>Solar First Static Web App</h1>
+  <p>Loading content from the API: <b id="name">...</b></p>
   </main>
+
+  <script>
+  (async function() {
+      const { text } = await( await fetch(`/api/HttpTrigger1?name=Solar`)).json();
+      document.querySelector('#name').textContent = text;
+  }())
+  </script>
 </body>
+
 
 </html>
